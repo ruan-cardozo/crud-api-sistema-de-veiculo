@@ -26,7 +26,10 @@ public class VeiculoBuilder
     }
 
     public VeiculoBuilder ComPlaca(string placa)
-    {
+    {   
+        if(string.IsNullOrEmpty(placa))
+            throw new ArgumentException("Placa não pode ser nula ou vazia", nameof(placa));
+
         _placa = placa;
         return this;
     }
