@@ -1,5 +1,6 @@
 ﻿using Dominio.Enums.ModeloEnum;
 using Dominio.Enums.MarcaEnum;
+using Xunit.Sdk;
 
 namespace Dominio.Entidades.Veiculo;
 public class Veiculo
@@ -20,6 +21,22 @@ public class Veiculo
     
     public Veiculo(string placa, Marca marca, Modelo modelo, int? anoFab, double km, string numChassi)
     {
+        //defina regras para os valores das variaveis
+        if (km < 0)
+            throw new ArgumentException("Km não pode ser menor que 0", nameof(km));
+
+        if (placa.Length != 7)
+            throw new ArgumentException("Placa deve conter 7 caracteres", nameof(placa));
+
+        if (numChassi.Length != 11)
+            throw new ArgumentException("Número do chassi deve conter 11 caracteres", nameof(numChassi));
+
+        if (anoFab < 1900)
+            throw new ArgumentException("Ano de fabricação não pode ser menor que 1900", nameof(anoFab));    
+
+        if (string.IsNullOrEmpty(placa))
+            throw new ArgumentException("Placa não pode ser nula ou vazia", nameof(placa));
+
         this.placa = placa;
         this.marca = marca;
         this.modelo = modelo;
