@@ -72,7 +72,7 @@ public class ClienteBuilder
 
     public ClienteBuilder ComValoresAleatorios()
     {
-        var faker = new Faker();
+        Faker faker = new Faker();
 
         _id = faker.Random.Int(1, 100);
         _nome = faker.Person.FullName;

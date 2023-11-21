@@ -56,7 +56,7 @@ public class ManutencaoBuilder
 
     public ManutencaoBuilder ComValoresAleatorios()
     {
-        var faker = new Faker();
+        Faker faker = new Faker();
 
         _id = faker.Random.Int(1, 100);
         _id_aluguel = faker.Random.Int(1, 100);

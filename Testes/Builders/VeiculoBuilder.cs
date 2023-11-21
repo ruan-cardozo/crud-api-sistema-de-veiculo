@@ -74,7 +74,7 @@ public class VeiculoBuilder
 
     public VeiculoBuilder ComValoresAleatorios()
     {
-        var faker = new Faker();
+        Faker faker = new Faker();
 
         _placa = faker.Random.String2(7, "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789");
         _marca = faker.PickRandom<Marca>();
