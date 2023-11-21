@@ -1,4 +1,4 @@
-namespace Domain.Enums.ModeloEnum;
+namespace Dominio.Enums.ModeloEnum;
 
 public enum Modelo
 {

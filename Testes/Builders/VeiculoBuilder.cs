@@ -1,5 +1,5 @@
 using Bogus;
-using Domain.Enums.ModeloEnum;
+using Dominio.Enums.ModeloEnum;
 using Dominio.Entidades.Veiculo;
 using Dominio.Enums.MarcaEnum; 
 

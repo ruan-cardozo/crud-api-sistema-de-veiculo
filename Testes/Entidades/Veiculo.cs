@@ -1,4 +1,4 @@
-﻿using Domain.Enums.ModeloEnum;
+﻿using Dominio.Enums.ModeloEnum;
 using Dominio.Enums.MarcaEnum;
 
 namespace Dominio.Entidades.Veiculo;
