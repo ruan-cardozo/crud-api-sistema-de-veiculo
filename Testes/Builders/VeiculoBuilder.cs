@@ -12,7 +12,7 @@ public class VeiculoBuilder
     private Marca _marca = Marca.BMW;
     private Modelo _modelo = Modelo.X6;
     private int? _anoFab = 2023;
-    private double _km = 0;
+    private double _km = 0.5;
     private string? _numChassi = "59100316158";
 
     public static VeiculoBuilder Novo()
@@ -67,7 +67,7 @@ public class VeiculoBuilder
         _marca = Marca.BMW;
         _modelo = Modelo.X6;
         _anoFab = 2023;
-        _km = 0;
+        _km = 0.5;
         _numChassi = "59100316158";
         return this;
     }
