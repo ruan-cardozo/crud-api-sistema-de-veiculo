@@ -18,7 +18,7 @@ public class Veiculo
     public double Km {get => km; private set => km = value; }
     public string? NumChassi {get => numChassi; private set => numChassi = value; }
     
-    public Veiculo(string placa, Marca marca, Modelo modelo, int anoFab, double km, string numChassi)
+    public Veiculo(string placa, Marca marca, Modelo modelo, int? anoFab, double km, string numChassi)
     {
         this.placa = placa;
         this.marca = marca;
