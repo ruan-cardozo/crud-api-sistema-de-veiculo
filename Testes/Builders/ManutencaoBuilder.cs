@@ -8,8 +8,8 @@ public class ManutencaoBuilder
     //propiedades
     private int _id = 1;
     private int _id_aluguel = 1;
-    private string? _motivo = "Troca de oleo";
-    private decimal? _valor = 100;
+    private string _motivo = "Troca de oleo";
+    private decimal _valor = 100;
 
     public static ManutencaoBuilder Novo()
     {
@@ -33,13 +33,13 @@ public class ManutencaoBuilder
         return this;
     }
 
-    public ManutencaoBuilder ComMotivo(string? motivo)
+    public ManutencaoBuilder ComMotivo(string motivo)
     {
         _motivo = motivo;
         return this;
     }
 
-    public ManutencaoBuilder ComValor(decimal? valor)
+    public ManutencaoBuilder ComValor(decimal valor)
     {
         _valor = valor;
         return this;

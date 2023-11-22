@@ -9,7 +9,7 @@ public class Veiculo
     private Marca marca;
     private Modelo modelo;
     private int? anoFab;
-    private double km;
+    private double km; //menor que 0
     private string? numChassi;
 
     public string Placa { get => placa; private set => placa = value; }
@@ -22,6 +22,8 @@ public class Veiculo
     public Veiculo(string placa, Marca marca, Modelo modelo, int? anoFab, double km, string numChassi)
     {
         //defina regras para os valores das variaveis
+        if (marca == null)
+            throw new ArgumentException("Marca não pode ser nula", nameof(marca));
         if (km < 0)
             throw new ArgumentException("Km não pode ser menor que 0", nameof(km));
 

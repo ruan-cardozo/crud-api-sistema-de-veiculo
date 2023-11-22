@@ -11,9 +11,9 @@ public class VeiculoBuilder
     private string _placa = "HPS-0465";
     private Marca _marca = Marca.BMW;
     private Modelo _modelo = Modelo.X6;
-    private int? _anoFab = 2023;
+    private int _anoFab = 2023;
     private double _km = 0.5;
-    private string? _numChassi = "59100316158";
+    private string _numChassi = "59100316158";
 
     public static VeiculoBuilder Novo()
     {
@@ -36,6 +36,8 @@ public class VeiculoBuilder
 
     public VeiculoBuilder ComMarca(Marca marca)
     {
+        if(marca == null)
+            throw new ArgumentException("Marca não pode ser nula", nameof(marca));
         _marca = marca;
         return this;
     }
@@ -46,7 +48,7 @@ public class VeiculoBuilder
         return this;
     }
 
-    public VeiculoBuilder ComAnoFab(int? anoFab)
+    public VeiculoBuilder ComAnoFab(int anoFab)
     {
         _anoFab = anoFab;
         return this;
@@ -58,7 +60,7 @@ public class VeiculoBuilder
         return this;
     }
 
-    public VeiculoBuilder ComNumChassi(string? numChassi)
+    public VeiculoBuilder ComNumChassi(string numChassi)
     {
         _numChassi = numChassi;
         return this;
