@@ -14,6 +14,10 @@ public class Manutencao
 
     public Manutencao(int id, int id_aluguel, string motivo, decimal valor)
     {
+        if(string.IsNullOrEmpty(motivo)){
+            throw new ArgumentException("Motivo da manutenção não pode ser Nulo ou Vazio");
+        }
+        
         this.id = id;
         this.id_aluguel = id_aluguel;
         this.motivo = motivo;

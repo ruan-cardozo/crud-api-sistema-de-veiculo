@@ -24,4 +24,17 @@ public class ManutencaoTeste
         //Assert
         manutencaoEsperada.ToExpectedObject().ShouldMatch(manutencao);
     }
+
+    [Theory]
+    [InlineData(null)]
+    [InlineData("")]
+    public void DeveLancarExcecaoComMotivoNuloOuVazio(string motivo)
+    {
+        //Arrange
+        var manutencaoEsperada = ManutencaoBuilder.Novo().ComValoresAleatorios();     
+
+        //Act e Assert
+        Assert.Throws<ArgumentException>(() => manutencaoEsperada.ComMotivo(motivo));
+    }
+
 }

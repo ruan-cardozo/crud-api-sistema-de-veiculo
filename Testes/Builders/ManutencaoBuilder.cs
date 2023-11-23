@@ -35,6 +35,9 @@ public class ManutencaoBuilder
 
     public ManutencaoBuilder ComMotivo(string motivo)
     {
+        if(string.IsNullOrEmpty(motivo)){
+            throw new ArgumentException("Motivo da manutenção não pode ser Nulo ou Vazio");
+        }
         _motivo = motivo;
         return this;
     }
