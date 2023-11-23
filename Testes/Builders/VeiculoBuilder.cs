@@ -35,14 +35,16 @@ public class VeiculoBuilder
 
     public VeiculoBuilder ComMarca(string marca)
     {
-        if(marca == null)
-            throw new ArgumentException("Marca não pode ser nula", nameof(marca));
+        if(string.IsNullOrEmpty(marca))
+            throw new ArgumentException("Marca não pode ser nula ou vazio", nameof(marca));
         _marca = marca;
         return this;
     }
 
     public VeiculoBuilder ComModelo(string modelo)
     {
+        if(string.IsNullOrEmpty(modelo))
+            throw new ArgumentException("Modelo não pode ser nulo ou vazio", nameof(modelo));
         _modelo = modelo;
         return this;
     }

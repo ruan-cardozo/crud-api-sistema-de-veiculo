@@ -22,8 +22,10 @@ public class Veiculo
     public Veiculo(string placa, string marca, string modelo, int anoFab, double km, string numChassi)
     {
         //defina regras para os valores das variaveis
-        if (marca == null)
-            throw new ArgumentException("Marca não pode ser nula", nameof(marca));
+        if(string.IsNullOrEmpty(modelo))
+            throw new ArgumentException("Modelo não pode ser nulo ou vazio", nameof(modelo));
+        if (string.IsNullOrEmpty(marca))
+            throw new ArgumentException("Marca não pode ser nula ou vazio", nameof(marca));
         if (km < 0)
             throw new ArgumentException("Km não pode ser menor que 0", nameof(km));
 
