@@ -41,7 +41,9 @@ public class Veiculo
 
         if (string.IsNullOrEmpty(placa))
             throw new ArgumentException("Placa não pode ser nula ou vazia", nameof(placa));
-        if(string)
+        
+        if(string.IsNullOrEmpty(km.ToString()))
+            throw new ArgumentException("Km não pode ser nulo ou vazio", nameof(km));
         this.placa = placa;
         this.marca = marca;
         this.modelo = modelo;
