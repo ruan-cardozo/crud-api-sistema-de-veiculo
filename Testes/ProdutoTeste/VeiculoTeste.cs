@@ -12,7 +12,7 @@ using Dominio.Enums.MarcaEnum;
 3. anoFab não pode execeder 1900 - Done
 4. km não pode ser menor que 0 - Done
 5. numChassi não pode ser nulo nem vazio - Done
-6. numChassi deve conter 11 caracteres
+6. numChassi deve conter 11 caracteres - Done
 7. marca não pode ser nula
 */
 
@@ -98,5 +98,19 @@ public class VeiculoTeste
         Assert.Throws<ArgumentException>(() => veiculoEsperado.ComNumChassi(numChassi));
     }
 
+    [Theory]
+    [InlineData("5910031615")]
+    [InlineData("591003161581")]
+    [InlineData("591")]
+    [InlineData("5910031615812")]
+    public void NumChassiNaoDeveAceitarValoresDiferentesDe11Caracteres(string numChassi)
+    {
+        // Arrange
+        var veiculoEsperado = VeiculoBuilder.Novo().ComValoresAleatorios();
 
+        // Act & Assert
+        Assert.Throws<ArgumentException>(() => veiculoEsperado.ComNumChassi(numChassi));
+    }
+
+    
 }
