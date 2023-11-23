@@ -1,8 +1,5 @@
-
 using Testes.Builders.VeiculoBuilder;
-using Dominio.Entidades.Veiculo;
 using ExpectedObjects;
-using Testes.ArgExcextensions;
 
 //Criterios de aceite
 /*
@@ -12,8 +9,8 @@ using Testes.ArgExcextensions;
 4. km não pode ser menor que 0 - Done
 5. numChassi não pode ser nulo nem vazio - Done
 6. numChassi deve conter 11 caracteres - Done
-7. Marca não pode ser nula nem vazia
-8. Modelo pode ser nulo ou vazio
+7. Marca não pode ser nula nem vazia - Done
+8. Modelo pode ser nulo ou vazio - Done 
 */
 
 namespace Testes.ProdutoTeste.VeiculoTeste;
