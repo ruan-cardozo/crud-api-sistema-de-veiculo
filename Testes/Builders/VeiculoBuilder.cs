@@ -1,7 +1,5 @@
 using Bogus;
-using Dominio.Enums.ModeloEnum;
 using Dominio.Entidades.Veiculo;
-using Dominio.Enums.MarcaEnum; 
 
 namespace Testes.Builders.VeiculoBuilder;
 
@@ -9,8 +7,8 @@ public class VeiculoBuilder
 {
     //propiedades
     private string _placa = "HPS-0465";
-    private Marca _marca = Marca.BMW;
-    private Modelo _modelo = Modelo.X6;
+    private string _marca = "BMW";
+    private string _modelo = "X6";
     private int _anoFab = 2023;
     private double _km = 0.5;
     private string _numChassi = "59100316158";
@@ -35,7 +33,7 @@ public class VeiculoBuilder
         return this;
     }
 
-    public VeiculoBuilder ComMarca(Marca marca)
+    public VeiculoBuilder ComMarca(string marca)
     {
         if(marca == null)
             throw new ArgumentException("Marca não pode ser nula", nameof(marca));
@@ -43,7 +41,7 @@ public class VeiculoBuilder
         return this;
     }
 
-    public VeiculoBuilder ComModelo(Modelo modelo)
+    public VeiculoBuilder ComModelo(string modelo)
     {
         _modelo = modelo;
         return this;
@@ -79,8 +77,8 @@ public class VeiculoBuilder
     public VeiculoBuilder ComValoresPadroes()
     {
         _placa = "HPS-0465";
-        _marca = Marca.BMW;
-        _modelo = Modelo.X6;
+        _marca = "BMW";
+        _modelo = "X6";
         _anoFab = 2023;
         _km = 0.5;
         _numChassi = "59100316158";
@@ -92,8 +90,8 @@ public class VeiculoBuilder
         Faker faker = new Faker();
 
         _placa = faker.Random.String2(7, "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789");
-        _marca = faker.PickRandom<Marca>();
-        _modelo = faker.PickRandom<Modelo>();
+        _marca = faker.PickRandom(new string[] {"BMW", "Fiat", "Ford", "Honda", "Hyundai", "Mercedes", "Renault", "Toyota", "Volkswagen"});
+        _modelo = faker.PickRandom(new string [] {"X6", "Uno", "Ka", "Civic", "HB20", "C180", "Sandero", "Corolla", "Gol"});
         _anoFab = faker.Random.Int(2000, 2021);
         _km = faker.Random.Double(0, 100000);
         _numChassi = faker.Random.String2(11, "0123456789");
