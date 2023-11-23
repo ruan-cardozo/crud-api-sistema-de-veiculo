@@ -18,6 +18,8 @@ public class Cliente
     
     public Cliente(int id, string nome, string rg, string cpf, string telefone, string cnh)
     {
+        if(id <= 0)
+            throw new ArgumentException("Id não pode ser negativo");
         this.id = id;
         this.nome = nome;
         this.rg = rg;

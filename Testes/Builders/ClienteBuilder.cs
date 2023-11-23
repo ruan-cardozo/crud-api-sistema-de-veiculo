@@ -24,7 +24,9 @@ public class ClienteBuilder
     }
 
     public ClienteBuilder ComId(int id)
-    {
+    {   
+        if(id <= 0)
+            throw new ArgumentException("Id não pode ser negativo");
         _id = id;
         return this;
     }
