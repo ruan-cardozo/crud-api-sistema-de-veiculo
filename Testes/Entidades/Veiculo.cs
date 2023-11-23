@@ -33,12 +33,15 @@ public class Veiculo
         if (numChassi.Length != 11)
             throw new ArgumentException("Número do chassi deve conter 11 caracteres", nameof(numChassi));
 
+        if (string.IsNullOrEmpty(numChassi))
+            throw new ArgumentException("Número do chassi não pode ser nulo ou vazio", nameof(numChassi));
+
         if (anoFab < 1900)
             throw new ArgumentException("Ano de fabricação não pode ser menor que 1900", nameof(anoFab));    
 
         if (string.IsNullOrEmpty(placa))
             throw new ArgumentException("Placa não pode ser nula ou vazia", nameof(placa));
-
+        if(string)
         this.placa = placa;
         this.marca = marca;
         this.modelo = modelo;

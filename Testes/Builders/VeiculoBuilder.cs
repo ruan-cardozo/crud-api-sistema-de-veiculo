@@ -29,7 +29,8 @@ public class VeiculoBuilder
     {   
         if(string.IsNullOrEmpty(placa))
             throw new ArgumentException("Placa não pode ser nula ou vazia", nameof(placa));
-
+        if(placa.Length != 7)
+            throw new ArgumentException("Placa deve conter 7 caracteres", nameof(placa));
         _placa = placa;
         return this;
     }
@@ -50,18 +51,27 @@ public class VeiculoBuilder
 
     public VeiculoBuilder ComAnoFab(int anoFab)
     {
+        if(anoFab < 1900)
+            throw new ArgumentException("Ano de fabricação não pode ser menor que 1900", nameof(anoFab));
         _anoFab = anoFab;
         return this;
     }
 
     public VeiculoBuilder ComKm(double km)
-    {
+    {   if(km<0)
+            throw new ArgumentException("Km não pode ser menor que 0", nameof(km));
+        if(string.IsNullOrEmpty(km.ToString()))
+            throw new ArgumentException("Km não pode ser nulo ou vazio", nameof(km));
         _km = km;
         return this;
     }
 
     public VeiculoBuilder ComNumChassi(string numChassi)
     {
+        if(string.IsNullOrEmpty(numChassi))
+            throw new ArgumentException("Número do chassi não pode ser nulo ou vazio", nameof(numChassi));
+        if (numChassi.Length != 11)
+            throw new ArgumentException("Número do chassi deve conter 11 caracteres", nameof(numChassi));    
         _numChassi = numChassi;
         return this;
     }
