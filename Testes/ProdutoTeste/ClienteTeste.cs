@@ -3,6 +3,7 @@ using Dominio.Entidades.Cliente;
 using ExpectedObjects;
 
 /*Criterios de Aceite 
+0- Id não pode ser nulo ou vazio
 1- Deve criar um cliente
 2- Nome não pode ser nulo ou vazio
 3- CPF não pode ser nulo ou vazio
@@ -31,4 +32,6 @@ public class ClienteTeste
         //Assert
         clienteEsperado.ToExpectedObject().ShouldMatch(cliente);
     }
+
+    
 }
