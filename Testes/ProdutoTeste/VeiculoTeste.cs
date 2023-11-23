@@ -3,7 +3,6 @@ using Testes.Builders.VeiculoBuilder;
 using Dominio.Entidades.Veiculo;
 using ExpectedObjects;
 using Testes.ArgExcextensions;
-using Dominio.Enums.MarcaEnum;
 
 //Criterios de aceite
 /*
@@ -114,6 +113,28 @@ public class VeiculoTeste
     }
 
 
-    []
-    
+    [Theory]
+    [InlineData(null)]
+    [InlineData("")]
+    public void DeveLancarExececaoAoCriarVeiculoComMarcaNulaEVazia(string marca)
+    {
+        // Arrange
+        var veiculoEsperado = VeiculoBuilder.Novo().ComValoresAleatorios();
+
+        // Act & Assert
+        Assert.Throws<ArgumentException>(() => veiculoEsperado.ComMarca(marca));
+    }
+
+    [Theory]
+    [InlineData(null)]
+    [InlineData("")]
+    public void DeveLancarExececaoAoCriarVeiculoComModeloNuloEVazio(string modelo)
+    {
+        // Arrange
+        var veiculoEsperado = VeiculoBuilder.Novo().ComValoresAleatorios();
+
+        // Act & Assert
+        Assert.Throws<ArgumentException>(() => veiculoEsperado.ComModelo(modelo));
+    }
+
 }
