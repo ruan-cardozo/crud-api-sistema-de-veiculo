@@ -3,7 +3,7 @@ using Dominio.Entidades.Cliente;
 using ExpectedObjects;
 
 /*Criterios de Aceite 
-0- Id não pode ser nulo ou vazio
+0- Id não pode ser negativo
 1- Deve criar um cliente
 2- Nome não pode ser nulo ou vazio
 3- CPF não pode ser nulo ou vazio
@@ -33,5 +33,18 @@ public class ClienteTeste
         clienteEsperado.ToExpectedObject().ShouldMatch(cliente);
     }
 
-    
+    [Theory]
+    [InlineData(-3)]
+    [InlineData(-1)]
+    [InlineData(-2)]
+    [InlineData(-4)]
+    [InlineData(0)]
+    public void DeveLancarExececaoAoCriarClienteComIDNegativo(int id)
+    {
+        //Arrange
+        var clienteBuilder = ClienteBuilder.Novo().ComValoresAleatorios();
+
+        ///Act & Assert
+        Assert.Throws<ArgumentException>(() => clienteBuilder.ComId(id));
+    }
 }
