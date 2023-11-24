@@ -14,9 +14,9 @@ public class Manutencao
 
     public Manutencao(int id, int id_aluguel, string motivo, decimal valor)
     {
-        this.id = id;
-        this.id_aluguel = id_aluguel;
-        this.motivo = motivo;
-        this.valor = valor;
+        this.Id = id;
+        this.Id_Aluguel = id_aluguel;
+        this.Motivo = motivo;
+        this.Valor = valor;
     }
 }
