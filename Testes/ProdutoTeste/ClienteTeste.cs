@@ -3,8 +3,8 @@ using Dominio.Entidades.Cliente;
 using ExpectedObjects;
 
 /*Criterios de Aceite 
-0- Id não pode ser negativo
-1- Deve criar um cliente
+0- Id não pode ser negativo - Done
+1- Deve criar um cliente - Done
 2- Nome não pode ser nulo ou vazio
 3- CPF não pode ser nulo ou vazio
 4- CPF deve conter 11 caracteres
@@ -46,5 +46,17 @@ public class ClienteTeste
 
         ///Act & Assert
         Assert.Throws<ArgumentException>(() => clienteBuilder.ComId(id));
+    }
+
+    [Theory]
+    [InlineData(null)]
+    [InlineData("")]
+    public void DeveLancarExecaoAoCriarClienteComNomeVazioOuNulo(string nome)
+    {
+        //Arrange
+        var clienteBuilder = ClienteBuilder.Novo().ComValoresAleatorios();
+
+        //Act & Assert
+        Assert.Throws<ArgumentException>(() => clienteBuilder.ComNome(nome));
     }
 }
