@@ -1,8 +1,4 @@
-﻿using Dominio.Enums.ModeloEnum;
-using Dominio.Enums.MarcaEnum;
-using Xunit.Sdk;
-
-namespace Dominio.Entidades.Veiculo;
+﻿namespace Dominio.Entidades.Veiculo;
 public class Veiculo
 {
     private string placa;

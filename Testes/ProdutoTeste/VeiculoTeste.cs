@@ -1,9 +1,6 @@
 
 using Testes.Builders.VeiculoBuilder;
-using Dominio.Entidades.Veiculo;
 using ExpectedObjects;
-using Testes.ArgExcextensions;
-using Dominio.Enums.MarcaEnum;
 
 //Criterios de aceite
 /*
