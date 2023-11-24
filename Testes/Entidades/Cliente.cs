@@ -18,11 +18,15 @@ public class Cliente
     
     public Cliente(int id, string nome, string rg, string cpf, string telefone, string cnh)
     {
-        this.id = id;
-        this.nome = nome;
-        this.rg = rg;
-        this.cpf = cpf;
-        this.telefone = telefone;
-        this.cnh = cnh;
+        if(id <= 0)
+            throw new ArgumentException("Id não pode ser negativo");
+        if(string.IsNullOrEmpty(nome))
+            throw new ArgumentException("Nome não pode ser nulo ou vazio");
+        this.Id = id;
+        this.Nome = nome;
+        this.Rg = rg;
+        this.Cpf = cpf;
+        this.Telefone = telefone;
+        this.Cnh = cnh;
     }
 }
