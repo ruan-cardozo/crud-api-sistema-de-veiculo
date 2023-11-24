@@ -39,11 +39,11 @@ public class Veiculo
         if (string.IsNullOrEmpty(placa))
             throw new ArgumentException("Placa não pode ser nula ou vazia", nameof(placa));
 
-        this.placa = placa;
-        this.marca = marca;
-        this.modelo = modelo;
-        this.anoFab = anoFab;
-        this.km = km;
-        this.numChassi = numChassi;
+        this.Placa = placa;
+        this.Marca = marca;
+        this.Modelo = modelo;
+        this.AnoFab = anoFab;
+        this.Km = km;
+        this.NumChassi = numChassi;
     }
 }
