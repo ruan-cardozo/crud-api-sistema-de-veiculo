@@ -43,9 +43,15 @@ public class AluguelBuilder
 
     public AluguelBuilder ComDataRetirada(DateOnly dataRetirada)
     {
+        if (dataRetirada == DateOnly.MinValue)
+        {
+            throw new ArgumentException("A data de retirada não pode ser nula ou vazia.", nameof(dataRetirada));
+        }
+
         _dataRetirada = dataRetirada;
         return this;
     }
+
 
     public AluguelBuilder ComHoraRetirada(TimeOnly horaRetirada)
     {

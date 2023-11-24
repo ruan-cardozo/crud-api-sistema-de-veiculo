@@ -29,4 +29,31 @@ public class AluguelTeste
         //Assert
         aluguelEsperado.ToExpectedObject().ShouldMatch(aluguel);
     }
+
+    /*[Theory]
+    [InlineData(null)]
+    [InlineData("")]
+    public void DeveLancarExcecaoDataDevolucaoMenorQueDataRetirada(DateOnly dataRetirada)
+    {
+        //Arrange
+        var aluguelEsperado = AluguelBuilder.Novo().ComValoresAleatorios();     
+
+        //Act e Assert
+        Assert.Throws<ArgumentException>(() => aluguelEsperado.ComDataRetirada(dataRetirada));
+    }*/
+
+    [Theory]
+    [InlineData(null)]
+    [InlineData("")]
+    public void DeveLancarExcecaoDataDevolucaoMenorQueDataRetirada(string dataRetiradaString)
+    {
+        // Arrange
+        var aluguelEsperado = AluguelBuilder.Novo().ComValoresAleatorios(); 
+
+        // Act e Assert
+        Assert.Throws<ArgumentException>(() => aluguelEsperado.ComDataRetirada(string.IsNullOrEmpty(dataRetiradaString) 
+            ? DateOnly.MinValue : DateOnly.Parse(dataRetiradaString)));
+    }
+
+
 }
