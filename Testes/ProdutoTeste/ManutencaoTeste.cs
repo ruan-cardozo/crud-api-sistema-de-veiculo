@@ -24,4 +24,44 @@ public class ManutencaoTeste
         //Assert
         manutencaoEsperada.ToExpectedObject().ShouldMatch(manutencao);
     }
+
+    [Theory]
+    [InlineData(null)]
+    [InlineData("")]
+    public void DeveLancarExcecaoComMotivoNuloOuVazio(string motivo)
+    {
+        //Arrange
+        var manutencaoEsperada = ManutencaoBuilder.Novo().ComValoresAleatorios();     
+
+        //Act e Assert
+        Assert.Throws<ArgumentException>(() => manutencaoEsperada.ComMotivo(motivo));
+    }
+
+    /*[Theory]
+    [InlineData(null)]
+    [InlineData("")]
+    public void DeveLancarExcecaoComValorNuloOuVazio(decimal? valor)
+    {
+        //Arrange
+        var manutencaoEsperada = ManutencaoBuilder.Novo().ComValoresAleatorios();     
+
+        //Act e Assert
+        Assert.Throws<ArgumentException>(() => manutencaoEsperada.ComValor(valor));
+    }*/
+
+    [Theory]
+    [InlineData(null)]
+    [InlineData("")]
+    public void DeveLancarExcecaoComValorNuloOuVazioOuNegativo(string valorString)
+    {
+        //Arrange
+        var manutencaoEsperada = ManutencaoBuilder.Novo().ComValoresAleatorios(); 
+
+        //Act e Assert
+        Assert.Throws<ArgumentException>(() => manutencaoEsperada.ComValor(
+            string.IsNullOrEmpty(valorString) ? (decimal?)null : decimal.Parse(valorString)
+        ));
+    }
+
+
 }

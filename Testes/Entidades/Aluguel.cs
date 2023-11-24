@@ -38,6 +38,7 @@ public class Aluguel
 
     public Aluguel(int id, DateOnly dataRetirada, TimeOnly horaRetirada, double kmRetirada, double qtdLtsRetirada, DateOnly dataDevolução, TimeOnly horaDevolução, double kmDevolução, double qtdLtsDevolução, DateOnly dataPrevista, TimeOnly horaPrevista, decimal valorPrevisto, decimal valorReal, int id_Veiculo, int id_Cliente)
     {
+
         this.Id = id;
         this.DataRetirada = dataRetirada;
         this.HoraRetirada = horaRetirada;

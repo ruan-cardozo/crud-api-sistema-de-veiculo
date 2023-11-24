@@ -18,6 +18,10 @@ public class Cliente
     
     public Cliente(int id, string nome, string rg, string cpf, string telefone, string cnh)
     {
+        if(id <= 0)
+            throw new ArgumentException("Id não pode ser negativo");
+        if(string.IsNullOrEmpty(nome))
+          
         this.Id = id;
         this.Nome = nome;
         this.Rg = rg;

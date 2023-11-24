@@ -24,37 +24,55 @@ public class ClienteBuilder
     }
 
     public ClienteBuilder ComId(int id)
-    {
+    {   
+        if(id <= 0)
+            throw new ArgumentException("Id não pode ser negativo");
         _id = id;
         return this;
     }
 
     public ClienteBuilder ComNome(string nome)
-    {
-        _nome = nome;
+    {   
+        if(string.IsNullOrEmpty(nome))
+            throw new ArgumentException("Nome não pode ser nulo ou vazio");
+        _nome = nome;   
         return this;
     }
 
     public ClienteBuilder ComRg(string rg)
-    {
+    {   
+        if(string.IsNullOrEmpty(rg))
+            throw new ArgumentException("RG não pode ser nulo ou vazio");
+        if(rg.Length != 9)
+            throw new ArgumentException("RG deve conter 9 caracteres");
         _rg = rg;
         return this;
     }
 
     public ClienteBuilder ComCpf(string cpf)
-    {
+    {   if(string.IsNullOrEmpty(cpf))
+            throw new ArgumentException("CPF não pode ser nulo ou vazio");
+        if(cpf.Length != 11)
+            throw new ArgumentException("CPF deve conter 11 caracteres");
         _cpf = cpf;
         return this;
     }
 
     public ClienteBuilder ComTelefone(string telefone)
-    {
+    {   
+        if(string.IsNullOrEmpty(telefone))
+            throw new ArgumentException("Telefone não pode ser nulo ou vazio");
+        if(telefone.Length != 11 && telefone.Length != 10)
+            throw new ArgumentException("Telefone deve conter 11 ou 10 caracteres");
         _telefone = telefone;
         return this;
     }
 
     public ClienteBuilder ComCnh(string cnh)
-    {
+    {   if(string.IsNullOrEmpty(cnh))
+            throw new ArgumentException("CPF não pode ser nulo ou vazio");
+        if(cnh.Length != 11)
+            throw new ArgumentException("CPF deve conter 11 caracteres");
         _cnh = cnh;
         return this;
     }
