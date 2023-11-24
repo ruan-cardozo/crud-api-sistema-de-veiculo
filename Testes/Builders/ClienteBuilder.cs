@@ -40,7 +40,11 @@ public class ClienteBuilder
     }
 
     public ClienteBuilder ComRg(string rg)
-    {
+    {   
+        if(string.IsNullOrEmpty(rg))
+            throw new ArgumentException("RG não pode ser nulo ou vazio");
+        if(rg.Length != 9)
+            throw new ArgumentException("RG deve conter 9 caracteres");
         _rg = rg;
         return this;
     }
@@ -55,7 +59,11 @@ public class ClienteBuilder
     }
 
     public ClienteBuilder ComTelefone(string telefone)
-    {
+    {   
+        if(string.IsNullOrEmpty(telefone))
+            throw new ArgumentException("Telefone não pode ser nulo ou vazio");
+        if(telefone.Length != 11 && telefone.Length != 10)
+            throw new ArgumentException("Telefone deve conter 11 ou 10 caracteres");
         _telefone = telefone;
         return this;
     }
