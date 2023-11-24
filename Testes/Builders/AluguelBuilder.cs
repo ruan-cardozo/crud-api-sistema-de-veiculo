@@ -43,9 +43,15 @@ public class AluguelBuilder
 
     public AluguelBuilder ComDataRetirada(DateOnly dataRetirada)
     {
+        if (dataRetirada == DateOnly.MinValue)
+        {
+            throw new ArgumentException("A data de retirada não pode ser nula ou vazia.", nameof(dataRetirada));
+        }
+
         _dataRetirada = dataRetirada;
         return this;
     }
+
 
     public AluguelBuilder ComHoraRetirada(TimeOnly horaRetirada)
     {
@@ -79,12 +85,16 @@ public class AluguelBuilder
 
     public AluguelBuilder ComKmDevolução(double kmDevolução)
     {
+        if(kmDevolução < _kmRetirada)
+            throw new ArgumentException("A quilometragem de devolução não pode ser menor que a quilometragem de retirada.", nameof(kmDevolução));
         _kmDevolução = kmDevolução;
         return this;
     }
 
     public AluguelBuilder ComQtdLtsDevolução(double qtdLtsDevolução)
     {
+        if(qtdLtsDevolução < _qtdLtsRetirada)
+            throw new ArgumentException("A quantidade de litros de devolução não pode ser menor que a quantidade de litros de retirada.", nameof(qtdLtsDevolução));
         _qtdLtsDevolução = qtdLtsDevolução;
         return this;
     }
@@ -103,12 +113,16 @@ public class AluguelBuilder
 
     public AluguelBuilder ComValorPrevisto(decimal valorPrevisto)
     {
+        if(valorPrevisto < 0)
+            throw new ArgumentException("O valor previsto não pode ser negativo.", nameof(valorPrevisto));
         _valorPrevisto = valorPrevisto;
         return this;
     }
 
     public AluguelBuilder ComValorReal(decimal valorReal)
     {
+        if(valorReal < 0)
+            throw new ArgumentException("O valor real não pode ser negativo.", nameof(valorReal));
         _valorReal = valorReal;
         return this;
     }

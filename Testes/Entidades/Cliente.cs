@@ -21,7 +21,7 @@ public class Cliente
         if(id <= 0)
             throw new ArgumentException("Id não pode ser negativo");
         if(string.IsNullOrEmpty(nome))
-
+          
         this.Id = id;
         this.Nome = nome;
         this.Rg = rg;
