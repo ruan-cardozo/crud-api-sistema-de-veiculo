@@ -20,6 +20,8 @@ public class Cliente
     {
         if(id <= 0)
             throw new ArgumentException("Id não pode ser negativo");
+        if(string.IsNullOrEmpty(nome))
+            throw new ArgumentException("Nome não pode ser nulo ou vazio");
         this.id = id;
         this.nome = nome;
         this.rg = rg;
