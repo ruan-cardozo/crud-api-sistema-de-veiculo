@@ -18,9 +18,9 @@ public class Manutencao
             throw new ArgumentException("Motivo da manutenção não pode ser Nulo ou Vazio");
         }
         
-        this.id = id;
-        this.id_aluguel = id_aluguel;
-        this.motivo = motivo;
-        this.valor = valor;
+        this.Id = id;
+        this.Id_Aluguel = id_aluguel;
+        this.Motivo = motivo;
+        this.Valor = valor;
     }
 }
