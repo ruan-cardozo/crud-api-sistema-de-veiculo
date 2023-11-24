@@ -22,11 +22,11 @@ public class Cliente
             throw new ArgumentException("Id não pode ser negativo");
         if(string.IsNullOrEmpty(nome))
             throw new ArgumentException("Nome não pode ser nulo ou vazio");
-        this.id = id;
-        this.nome = nome;
-        this.rg = rg;
-        this.cpf = cpf;
-        this.telefone = telefone;
-        this.cnh = cnh;
+        this.Id = id;
+        this.Nome = nome;
+        this.Rg = rg;
+        this.Cpf = cpf;
+        this.Telefone = telefone;
+        this.Cnh = cnh;
     }
 }
