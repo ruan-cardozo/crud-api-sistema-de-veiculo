@@ -42,9 +42,14 @@ public class ManutencaoBuilder
         return this;
     }
 
-    public ManutencaoBuilder ComValor(decimal valor)
+    public ManutencaoBuilder ComValor(decimal? valor)
     {
-        _valor = valor;
+
+        if (!valor.HasValue || valor <= 0)
+    {
+        throw new ArgumentException("O valor deve ser um número positivo não nulo.", nameof(valor));
+    }
+        _valor = (decimal)valor;
         return this;
     }
 
