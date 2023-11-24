@@ -5,18 +5,6 @@ public class Veiculo
     private string marca;
     private string modelo;
     private int anoFab;
-    private double km; //menor que 0
-    private string numChassi;
-
-    public string Placa { get => placa; private set => placa = value; }
-    public string Marca { get => marca; private set => marca = value; }
-    public string Modelo {get => modelo; private set => modelo = value; }
-    public int? AnoFab {get => anoFab; private set => anoFab = value; }
-    public double Km {get => km; private set => km = value; }
-    public string? NumChassi {get => numChassi; private set => numChassi = value; }
-    
-    public Veiculo(string placa, string marca, string modelo, int? anoFab, double km, string numChassi)
-    private int anoFab;
     private double km;
     private string numChassi;
 
@@ -32,9 +20,10 @@ public class Veiculo
         //defina regras para os valores das variaveis
         if (string.IsNullOrEmpty(modelo))
             throw new ArgumentException("Modelo não pode ser nulo ou vazio", nameof(modelo));
-            
+
         if (string.IsNullOrEmpty(marca))
             throw new ArgumentException("Marca não pode ser nula ou vazio", nameof(marca));
+
         if (km < 0)
             throw new ArgumentException("Km não pode ser menor que 0", nameof(km));
 
