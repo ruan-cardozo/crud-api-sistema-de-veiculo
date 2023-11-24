@@ -38,6 +38,23 @@ public class Aluguel
 
     public Aluguel(int id, DateOnly dataRetirada, TimeOnly horaRetirada, double kmRetirada, double qtdLtsRetirada, DateOnly dataDevolução, TimeOnly horaDevolução, double kmDevolução, double qtdLtsDevolução, DateOnly dataPrevista, TimeOnly horaPrevista, decimal valorPrevisto, decimal valorReal, int id_Veiculo, int id_Cliente)
     {
+        if(dataRetirada == DateOnly.MinValue)
+            throw new ArgumentException("Data de retirada não pode ser nula ou vazia", nameof(dataRetirada));
+        
+        if(kmDevolução < kmRetirada)
+            throw new ArgumentException("Km de devolução não pode ser menor que km de retirada", nameof(kmDevolução));
+
+        if(qtdLtsDevolução < qtdLtsRetirada)
+            throw new ArgumentException("Quantidade de litros de devolução não pode ser menor que quantidade de litros de retirada", nameof(qtdLtsDevolução));
+        
+        if(valorPrevisto < 0)
+            throw new ArgumentException("Valor previsto não pode ser negativo", nameof(valorPrevisto));
+
+        if(valorReal < 0)
+            throw new ArgumentException("Valor real não pode ser negativo", nameof(valorReal));
+        
+        if(id < 0)
+            throw new ArgumentException("Id não pode ser negativo", nameof(id));
 
         this.Id = id;
         this.DataRetirada = dataRetirada;

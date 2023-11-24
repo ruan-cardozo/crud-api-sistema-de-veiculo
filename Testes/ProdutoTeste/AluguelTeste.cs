@@ -6,6 +6,7 @@ namespace Testes.ProdutoTeste.Aluguel;
 
 /*
 Criteiros de Aceite
+0- Id não pode ser negativo 
 1- Deve criar um aluguel - Done
 2- Data de devolução não pode ser menor que data de retirada - Done
 3- Valor previsto não pode ser negativo - Done
