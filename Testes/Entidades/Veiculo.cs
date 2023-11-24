@@ -20,6 +20,7 @@ public class Veiculo
         //defina regras para os valores das variaveis
         if (string.IsNullOrEmpty(modelo))
             throw new ArgumentException("Modelo não pode ser nulo ou vazio", nameof(modelo));
+            
         if (string.IsNullOrEmpty(marca))
             throw new ArgumentException("Marca não pode ser nula ou vazio", nameof(marca));
         if (km < 0)
