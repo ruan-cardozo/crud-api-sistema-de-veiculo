@@ -35,21 +35,21 @@ public class ManutencaoBuilder
 
     public ManutencaoBuilder ComMotivo(string motivo)
     {
-        if(string.IsNullOrEmpty(motivo)){
+        if(string.IsNullOrEmpty(motivo))
             throw new ArgumentException("Motivo da manutenção não pode ser Nulo ou Vazio");
-        }
+        if(motivo.Length < 5 || motivo.Length > 50)
+            throw new ArgumentException("Motivo deve ter entre 5 e 50 caracteres");
+            
         _motivo = motivo;
         return this;
     }
 
-    public ManutencaoBuilder ComValor(decimal? valor)
+    public ManutencaoBuilder ComValor(decimal valor)
     {
-
-        if (!valor.HasValue || valor <= 0)
-    {
-        throw new ArgumentException("O valor deve ser um número positivo não nulo.", nameof(valor));
-    }
-        _valor = (decimal)valor;
+        if(valor <= 0 )
+            throw new ArgumentException("Valor da manutenção não pode ser menor ou igual a 0");
+        
+        _valor = valor;
         return this;
     }
 
