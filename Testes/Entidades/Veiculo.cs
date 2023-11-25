@@ -18,11 +18,17 @@ public class Veiculo
     public Veiculo(string placa, string marca, string modelo, int anoFab, double km, string numChassi)
     {
         //defina regras para os valores das variaveis
+        if (string.IsNullOrEmpty(placa))
+            throw new ArgumentException("Placa não pode ser nula ou vazia", nameof(placa));
+
         if (string.IsNullOrEmpty(modelo))
             throw new ArgumentException("Modelo não pode ser nulo ou vazio", nameof(modelo));
 
         if (string.IsNullOrEmpty(marca))
             throw new ArgumentException("Marca não pode ser nula ou vazio", nameof(marca));
+
+        if (string.IsNullOrEmpty(numChassi))
+            throw new ArgumentException("Número do chassi não pode ser nulo ou vazio", nameof(numChassi));
 
         if (km < 0)
             throw new ArgumentException("Km não pode ser menor que 0", nameof(km));
@@ -33,14 +39,9 @@ public class Veiculo
         if (numChassi.Length != 11)
             throw new ArgumentException("Número do chassi deve conter 11 caracteres", nameof(numChassi));
 
-        if (string.IsNullOrEmpty(numChassi))
-            throw new ArgumentException("Número do chassi não pode ser nulo ou vazio", nameof(numChassi));
 
         if (anoFab < 1900)
             throw new ArgumentException("Ano de fabricação não pode ser menor que 1900", nameof(anoFab));
-
-        if (string.IsNullOrEmpty(placa))
-            throw new ArgumentException("Placa não pode ser nula ou vazia", nameof(placa));
 
         if (string.IsNullOrEmpty(km.ToString()))
             throw new ArgumentException("Km não pode ser nulo ou vazio", nameof(km));

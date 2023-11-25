@@ -1,5 +1,8 @@
 using Testes.Builders.VeiculoBuilder;
 using ExpectedObjects;
+using Dominio.Entidades.Cliente;
+using Dominio.Entidades.Veiculo;
+using Xunit.Sdk;
 
 //Criterios de aceite
 /*
@@ -134,4 +137,123 @@ public class VeiculoTeste
         Assert.Throws<ArgumentException>(() => veiculoEsperado.ComModelo(modelo));
     }
 
+    /* --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- */
+    //Testes referente as entidades propiamente ditas
+
+    [Fact]
+    public void DeveCriarVeiculoEntidade()
+    {
+        //Arrange 
+        var veiculoEsperado = VeiculoBuilder.Novo().ComValoresAleatorios().Build();    
+        
+        //Act
+        Veiculo veiculo = new Veiculo(veiculoEsperado.Placa, veiculoEsperado.Marca, veiculoEsperado.Modelo, veiculoEsperado.AnoFab, veiculoEsperado.Km, veiculoEsperado.NumChassi);
+        //Assert
+        veiculoEsperado.ToExpectedObject().ShouldMatch(veiculo);
+    }
+
+    [Theory]
+    [InlineData(null)]
+    [InlineData("")]
+    public void DeveLancarExececaoAoCriarVeiculoEntidadeComPlacaNulaEVazia(string placaInvalida)
+    {
+        // Arrange
+        var veiculoEsperado = VeiculoBuilder.Novo().ComValoresAleatorios().Build();
+
+        // Act & Assert
+        Assert.Throws<ArgumentException>(() => new Veiculo(placaInvalida, veiculoEsperado.Marca, veiculoEsperado.Modelo, veiculoEsperado.AnoFab, veiculoEsperado.Km, veiculoEsperado.NumChassi));
+    }
+
+    [Theory]
+    [InlineData("HPSAD046")]
+    [InlineData("HPS-04656")]
+    [InlineData("HPS-0465-")]
+    [InlineData("HPS-0465-1")]
+    [InlineData("HPS-0465-12")]
+    [InlineData("HPS-0465-123")]
+    public void PlacaNaoDeveAceitarValoresDiferentesDe7CaracteresEntidade(string placaInvalida)
+    {
+        // Arrange
+        var veiculoEsperado = VeiculoBuilder.Novo().ComValoresAleatorios().Build();
+
+        // Act & Assert
+        Assert.Throws<ArgumentException>(() => new Veiculo(placaInvalida, veiculoEsperado.Marca, veiculoEsperado.Modelo, veiculoEsperado.AnoFab, veiculoEsperado.Km, veiculoEsperado.NumChassi));
+    }
+
+    [Theory]
+    [InlineData(1899)]
+    public void DeveLancarExececaoAoCriarVeiculoEntidadeComAnoFabMenorQue1900(int anoFabInvalido)
+    {
+        // Arrange
+        var veiculoEsperado = VeiculoBuilder.Novo().ComValoresAleatorios().Build();
+
+        // Act & Assert
+        Assert.Throws<ArgumentException>(() => new Veiculo(veiculoEsperado.Placa, veiculoEsperado.Marca, veiculoEsperado.Modelo, anoFabInvalido, veiculoEsperado.Km, veiculoEsperado.NumChassi));
+    }
+
+    [Theory]
+    [InlineData(-1.15)]
+    [InlineData(-150.25)]
+    [InlineData(-0.5)]
+    [InlineData(-0.0001)]
+    public void DeveLancarExececaoAoCriarVeiculoEntidadeComKmNegativo(double kmInvalido)
+    {
+        // Arrange
+        var veiculoEsperado = VeiculoBuilder.Novo().ComValoresAleatorios().Build();
+
+        // Act & Assert
+        Assert.Throws<ArgumentException>(() => new Veiculo(veiculoEsperado.Placa, veiculoEsperado.Marca, veiculoEsperado.Modelo, veiculoEsperado.AnoFab, kmInvalido, veiculoEsperado.NumChassi));
+    }
+
+    [Theory]
+    [InlineData(null)]
+    [InlineData("")]
+    public void DeveLancarExececaoAoCriarVeiculoEntidadeComNumChassiNulaEVazia(string numChassiInvalido)
+    {
+        // Arrange
+        var veiculoEsperado = VeiculoBuilder.Novo().ComValoresAleatorios().Build();
+
+        // Act & Assert
+        Assert.Throws<ArgumentException>(() => new Veiculo(veiculoEsperado.Placa, veiculoEsperado.Marca, veiculoEsperado.Modelo, veiculoEsperado.AnoFab, veiculoEsperado.Km, numChassiInvalido));
+    }
+
+    [Theory]
+    [InlineData("5910031615")]
+    [InlineData("591003161581")]
+    [InlineData("591")]
+    [InlineData("5910031615812")]
+    public void NumChassiNaoDeveAceitarValoresDiferentesDe11CaracteresEntidade(string numChassiInvalido)
+    {
+        // Arrange
+        var veiculoEsperado = VeiculoBuilder.Novo().ComValoresAleatorios().Build();
+
+        // Act & Assert
+        Assert.Throws<ArgumentException>(() => new Veiculo(veiculoEsperado.Placa, veiculoEsperado.Marca, veiculoEsperado.Modelo, veiculoEsperado.AnoFab, veiculoEsperado.Km, numChassiInvalido));
+    }
+
+    [Theory]
+    [InlineData(null)]
+    [InlineData("")]
+    public void DeveLancarExececaoAoCriarVeiculoEntidadeComMarcaNulaEVazia(string marcaInvalida)
+    {
+        // Arrange
+        var veiculoEsperado = VeiculoBuilder.Novo().ComValoresAleatorios().Build();
+
+        // Act & Assert
+        Assert.Throws<ArgumentException>(() => new Veiculo(veiculoEsperado.Placa, marcaInvalida, veiculoEsperado.Modelo, veiculoEsperado.AnoFab, veiculoEsperado.Km, veiculoEsperado.NumChassi));
+    }
+
+    [Theory]
+    [InlineData(null)]
+    [InlineData("")]
+    public void DeveLancarExececaoAoCriarVeiculoEntidadeComModeloNuloEVazio(string modeloInvalido)
+    {
+        // Arrange
+        var veiculoEsperado = VeiculoBuilder.Novo().ComValoresAleatorios().Build();
+
+        // Act & Assert
+        Assert.Throws<ArgumentException>(() => new Veiculo(veiculoEsperado.Placa, veiculoEsperado.Marca, modeloInvalido, veiculoEsperado.AnoFab, veiculoEsperado.Km, veiculoEsperado.NumChassi));
+    }
+
+    
 }
