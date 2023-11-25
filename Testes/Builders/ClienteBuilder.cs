@@ -1,4 +1,5 @@
 using Bogus;
+using Bogus.Extensions.Brazil;
 using Dominio.Entidades.Cliente;
 
 namespace Testes.Builders.ClienteBuilder;

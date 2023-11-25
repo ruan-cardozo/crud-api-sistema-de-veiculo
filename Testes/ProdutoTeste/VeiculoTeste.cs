@@ -1,8 +1,6 @@
 using Testes.Builders.VeiculoBuilder;
 using ExpectedObjects;
-using Dominio.Entidades.Cliente;
 using Dominio.Entidades.Veiculo;
-using Xunit.Sdk;
 
 //Criterios de aceite
 /*
