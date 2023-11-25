@@ -23,12 +23,16 @@ public class ManutencaoBuilder
 
     public ManutencaoBuilder ComId(int id)
     {
+        if(id < 0) 
+            throw new ArgumentException("Id da manutenção não pode ser menor que 0");  
         _id = id;
         return this;
     }
 
     public ManutencaoBuilder ComIdAluguel(int id_aluguel)
     {
+        if(id_aluguel <= 0)
+            throw new ArgumentException("Id do aluguel não pode ser menor ou igual a 0");
         _id_aluguel = id_aluguel;
         return this;
     }

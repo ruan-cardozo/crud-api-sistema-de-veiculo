@@ -168,9 +168,4 @@ public class ManutencaoTeste
         // Act & Assert
         Assert.Throws<ArgumentException>(() => new Manutencao(manutencaoEsperada.Id, manutencaoEsperada.Id_Aluguel, motivoInvalido, manutencaoEsperada.Valor));
     }
-
-
-    
-
-
 }
