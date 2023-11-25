@@ -1,8 +1,5 @@
 using Bogus;
 using Dominio.Entidades.Aluguel;
-using Dominio.Entidades.Cliente;
-using Dominio.Entidades.Veiculo;
-using Testes.Builders.VeiculoBuilder;
 
 namespace Testes.Builders.AluguelBuilder;
 

@@ -1,4 +1,5 @@
 using Bogus;
+using Bogus.Extensions.Brazil;
 using Dominio.Entidades.Cliente;
 
 namespace Testes.Builders.ClienteBuilder;
@@ -70,9 +71,9 @@ public class ClienteBuilder
 
     public ClienteBuilder ComCnh(string cnh)
     {   if(string.IsNullOrEmpty(cnh))
-            throw new ArgumentException("CPF não pode ser nulo ou vazio");
+            throw new ArgumentException("CNH não pode ser nulo ou vazio");
         if(cnh.Length != 11)
-            throw new ArgumentException("CPF deve conter 11 caracteres");
+            throw new ArgumentException("CNH deve conter 11 caracteres");
         _cnh = cnh;
         return this;
     }
