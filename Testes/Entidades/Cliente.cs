@@ -18,10 +18,36 @@ public class Cliente
     
     public Cliente(int id, string nome, string rg, string cpf, string telefone, string cnh)
     {
-        if(id <= 0)
+        if(id < 0)
             throw new ArgumentException("Id não pode ser negativo");
+
         if(string.IsNullOrEmpty(nome))
-          
+            throw new ArgumentException("Nome não pode ser nulo ou vazio");
+
+        if(string.IsNullOrEmpty(rg))
+            throw new ArgumentException("RG não pode ser nulo ou vazio");
+
+        if(rg.Length != 9)
+            throw new ArgumentException("RG deve conter 9 caracteres");
+        
+        if(string.IsNullOrEmpty(cpf))
+            throw new ArgumentException("CPF não pode ser nulo ou vazio");
+        
+        if(cpf.Length != 11)
+            throw new ArgumentException("CPF deve conter 11 caracteres");
+        
+        if(string.IsNullOrEmpty(telefone))
+            throw new ArgumentException("Telefone não pode ser nulo ou vazio");
+        
+        if(telefone.Length != 11 && telefone.Length != 10)
+            throw new ArgumentException("Telefone deve conter 11 ou 10 caracteres");
+        
+        if(string.IsNullOrEmpty(cnh))
+            throw new ArgumentException("CNH não pode ser nulo ou vazio");
+        
+        if(cnh.Length != 11)
+            throw new ArgumentException("CNH deve conter 11 caracteres");   
+        
         this.Id = id;
         this.Nome = nome;
         this.Rg = rg;
