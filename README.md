@@ -23,3 +23,10 @@
 * Número do Chassi deve conter 11 caracteres - Determina que o número do Chassi do veículo deve ter exatamente 11 caracteres para ser considerado válido.
 * Marca não pode ser nula nem vazia - Exige que o campo da marca do veículo seja preenchido e não esteja vazio.
 * Modelo não pode ser nulo ou vazio - Requer que o campo do modelo do veículo seja preenchido e não esteja vazio.
+#### Manutenção
+* Deve criar uma manutenção - Assegura que o sistema seja capaz de criar um registro para uma atividade de manutenção quando solicitado.
+* Motivo não pode ser nulo ou vazio - Requer que o campo do motivo da manutenção seja preenchido e não esteja vazio.
+* Valor não pode ser menor que 0 - Garante que o valor associado à manutenção não seja um número negativo, mantendo a integridade dos dados financeiros.
+* ID_aluguel não pode ser menor que 0 - Se estiver relacionado a um aluguel, o ID associado a esse aluguel não deve ser um número negativo.
+* ID não pode ser menor que 0 - O identificador único da manutenção não deve ser um número negativo.
+* Motivo deve ter entre 5 e 50 caracteres - Estabelece que o motivo da manutenção deve ter um comprimento entre 5 e 50 caracteres para garantir uma descrição adequada, mas não excessivamente longa.
