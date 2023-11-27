@@ -11,7 +11,7 @@ using Dominio.Entidades.Veiculo;
 5. numChassi não pode ser nulo nem vazio - Done
 6. numChassi deve conter 11 caracteres - Done
 7. Marca não pode ser nula nem vazia - Done
-8. Modelo pode ser nulo ou vazio - Done 
+8. Modelo não pode ser nulo ou vazio - Done 
 */
 
 namespace Testes.ProdutoTeste.VeiculoTeste;
