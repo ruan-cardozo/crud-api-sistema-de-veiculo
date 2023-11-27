@@ -30,3 +30,10 @@
 * ID_aluguel não pode ser menor que 0 - Se estiver relacionado a um aluguel, o ID associado a esse aluguel não deve ser um número negativo.
 * ID não pode ser menor que 0 - O identificador único da manutenção não deve ser um número negativo.
 * Motivo deve ter entre 5 e 50 caracteres - Estabelece que o motivo da manutenção deve ter um comprimento entre 5 e 50 caracteres para garantir uma descrição adequada, mas não excessivamente longa.
+#### Aluguel
+* Deve criar um aluguel - Garante que o sistema seja capaz de criar um registro para um novo aluguel quando solicitado.
+* Data de devolução não pode ser menor que a data de retirada - Impede que a data de devolução seja anterior à data de retirada, garantindo que o aluguel tenha um intervalo de tempo válido.
+* Valor previsto não pode ser negativo - Garante que o valor estimado do aluguel não seja um número negativo, mantendo a integridade dos dados financeiros.
+* Valor real não pode ser negativo - Assegura que o valor real do aluguel (caso já tenha sido pago ou registrado) não seja um número negativo.
+* Km de devolução não pode ser menor que a km de retirada, e não pode ser negativo - Previne que a quilometragem registrada na devolução seja menor do que a quilometragem registrada na retirada do veículo, e também garante que ambas as quilometragens sejam números não negativos.
+* Quantidade de litros de devolução não pode ser menor que a quantidade de litros de retirada - Evita que a quantidade de combustível registrada na devolução seja menor do que a quantidade registrada na retirada do veículo.
